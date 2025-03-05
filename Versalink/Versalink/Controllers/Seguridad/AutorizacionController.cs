@@ -45,12 +45,8 @@ namespace Versalink.Controllers.Seguridad
             }
             else
             {
-
                 return StatusCode(StatusCodes.Status401Unauthorized, new { token = "" });
             }
-
-
-
         }
     }
 }
