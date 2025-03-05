@@ -17,13 +17,13 @@ namespace Versalink.Controllers.Seguridad
             _configuration = config;
         }
         [HttpPost]
-        [Route("Validar")]
-        public IActionResult Validar([FromBody] Usuario request)
+        [Route("getToken")]
+        public IActionResult getToken([FromBody] Usuario request)
         {
             if (request.correo == _configuration["settings:correoAPI"] && request.clave == _configuration["settings:claveAPI"])
             {
 
-                var keyBytes = Encoding.ASCII.GetBytes(_configuration["settings:secretKey"] ?? "==DaVidFNlY3Jla==");
+                var keyBytes = Encoding.ASCII.GetBytes(_configuration["settings:secretKey"] ?? "");
                 var claims = new ClaimsIdentity();
                 claims.AddClaim(new Claim(ClaimTypes.NameIdentifier, request.correo));
 
